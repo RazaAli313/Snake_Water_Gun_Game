@@ -1,0 +1,55 @@
+import random
+def gameWin(comp,you):
+    if(comp==you):
+      return None
+    if(comp=='s'):
+      if(you=='w'):
+        return False
+      elif(you=='g'):
+        return True
+    if(comp=='w'):
+      if(you=='g'):
+        return False
+      elif(you=='s'):
+        return True
+    if(comp=='g'):
+      if(you=='w'):
+        return True
+      elif(you=='s'):
+        return False
+def is_input_valid(you):
+     if(you=='s'or you=='w'or you=='g'):
+       return True
+     else:
+       return False
+while(True):
+ print("Welcome to Snake,Water,Gun Game")
+ name=input("Enter your Name: ")
+ print("Computer Choice: Snake(s),Water(w),Gun(g)?")
+ randNum=random.randint(1,3)
+ if(randNum==1):
+   comp='s'
+ elif(randNum==2):
+   comp='w'
+ elif(randNum==3):
+   comp='g'
+ while(True):
+  you=input(f'{name},Enter your Choice: Snake(s),Water(w),Gun(g):')
+  if(is_input_valid(you)):
+     break
+ result=gameWin(comp,you)
+ print(f'Computer choose {comp}')
+ print(f'You choose {you}')
+ if(result):
+   print(f'Congratulations {name},You Won')
+ elif(result==False):
+   print(f"{name},You lose,try next time")
+ else:
+   print('Game is Tie')
+ while(True):
+     choice=input('Do you want to play again(Y/N):')
+     if(choice=='N'or choice=='n'):
+       exit()
+     elif(choice=='Y'or choice=='y'):
+       break
+     
